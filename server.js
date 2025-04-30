@@ -50,7 +50,7 @@ let templateHtml;
       appType: 'custom',
       base,
     });
-    
+
     app.use(vite.middlewares);
   } else {
     app.use(compression());
@@ -62,7 +62,7 @@ let templateHtml;
     if (req.originalUrl.startsWith('/api/')) {
       return next();
     }
-    
+
     try {
       const url = req.originalUrl.replace(base, '');
 
