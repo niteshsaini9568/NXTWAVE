@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node server",
+    "dev": "node server.js",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
-    "preview": "cross-env NODE_ENV=production node server"
+    "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.2.2",
