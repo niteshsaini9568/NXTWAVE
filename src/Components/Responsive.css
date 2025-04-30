@@ -1,72 +1,64 @@
 @media screen and (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      padding: 1rem;
-    }
-  
-    .navbar-logo {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  
-    .navbar-logo h1 {
-      font-size: 1.5rem;
-      margin: 0;
-      margin-left: 40px;
-    }
-  
-    .navbar-logo img {
-      height: 30px;
-    }
-  
-    .nav-icons {
-      display: flex;
-      gap: 0.3rem;
-    }
-  
-    .icon-button, .language-button {
-      background: none;
-      border: none;
-      padding: 0.3rem;
-    }
-  
-    .navbar-links {
-      display: none; 
-    }
-    
-    .mobile-menu{
-        display: none;
-    }
-
-    .menu-button{
-        display: block;
-    }
-
-    .mobile-menu-toggle {
-      display: none;
-    }
-
-    .icon-button {
-        margin-left: 0;
-    }
+  .navbar {
+    padding: 1rem;
   }
   
-  
-  @media screen and (max-width: 480px) {
-    .nav-icons {
-      gap: 0.3rem;
-    }
-    
-    .icon-button, .language-button {
-      padding: 0.3rem;
-    }
-    
-    .navbar-logo h1 {
-      font-size: 1.2rem;
-    }
+  .navbar-logo {
+    width: 100%;
   }
+  
+  .navbar-logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    margin-left: 40px;
+  }
+  
+  .navbar-logo img {
+    height: 30px;
+  }
+  
+  .nav-icons {
+    display: flex;
+    gap: 0.3rem;
+  }
+  
+  .icon-button, .language-button {
+    background: none;
+    border: none;
+    padding: 0.3rem;
+  }
+  
+  .desktop-links {
+    display: none; 
+  }
+  
+  .mobile-menu {
+    display: none;
+  }
+  
+  .menu-button {
+    display: block;
+  }
+  
+  .icon-button {
+    margin-left: 5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav-icons {
+    gap: 0.3rem;
+  }
+  
+  .icon-button, .language-button {
+    padding: 0.2rem;
+  }
+  
+  .navbar-logo h1 {
+    font-size: 1.2rem;
+    margin-left: 20px;
+  }
+}
 
 @media screen and (max-width: 768px) {
     .hero {

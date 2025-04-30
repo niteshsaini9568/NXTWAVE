@@ -14,8 +14,7 @@ function Signup() {
 
   const [message, setMessage] = useState('');
 
-  const navigate = useNavigate(); // Corrected location of useNavigate
-
+  const navigate = useNavigate();
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };

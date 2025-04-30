@@ -1,5 +1,3 @@
-// Authrouter.js
-
 import express from 'express';
 import { signupValidation, loginValidation } from '../Middlewares/Authvalidation.js';
 import { signup, login } from '../Controllers/Authcontroller.js';

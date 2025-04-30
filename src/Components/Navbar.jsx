@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Heart, ShoppingBag, User } from 'lucide-react';
-import './Main.css';
-import './Responsive.css';
+import { Search, Heart, ShoppingBag, User, X, Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import './Main.css'
+import './Responsive.css'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,16 +11,16 @@ function Navbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if the token exists in localStorage to determine if the user is logged in
     const token = localStorage.getItem('token');
     if (token) {
-      setIsLoggedIn(true); // User is logged in
+      setIsLoggedIn(true); 
     } else {
-      setIsLoggedIn(false); // User is not logged in
+      setIsLoggedIn(false); 
     }
   }, []);
 
   const toggleMenu = () => {
+    console.log('Menu toggled'); 
     setIsOpen(!isOpen);
   };
 
@@ -29,17 +29,16 @@ function Navbar() {
   };
 
   const handleLogout = () => {
-    // Remove the token from localStorage
     localStorage.removeItem('token');
-    setIsLoggedIn(false); // Update the state to reflect the logged-out status
-    navigate('/login'); // Redirect the user to the login page after logout
+    setIsLoggedIn(false);
+    navigate('/login'); 
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <button className="menu-button" onClick={toggleMenu}>
-          {isOpen ? 'X' : '☰'}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         <img src='../../Logo.png' alt="Logo" />
         <h1>LOGO</h1>
@@ -65,7 +64,8 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className="navbar-links">
+      
+      <div className="navbar-links desktop-links">
         <a href="/">SHOP</a>
         <a href="#">SKILLS</a>
         <a href="#">STORIES</a>
@@ -73,14 +73,37 @@ function Navbar() {
         <a href="#">CONTACT US</a>
         {!isLoggedIn ? (
           <>
-            <a href="/login">Login</a>
-            <a href="/signup">Signup</a>
+            <a href="/login">LOGIN</a>
+            <a href="/signup">SIGNUP</a>
           </>
         ) : (
           <button className="logout-button" onClick={handleLogout}>
-            Logout
+            LOGOUT
           </button>
         )}
+      </div>
+      
+      <div className={`mobile-navbar-menu ${isOpen ? 'open' : ''}`}>
+        <a href="/">SHOP</a>
+        <a href="#">SKILLS</a>
+        <a href="#">STORIES</a>
+        <a href="#">ABOUT</a>
+        <a href="#">CONTACT US</a>
+        {!isLoggedIn ? (
+          <>
+            <a href="/login">LOGIN</a>
+            <a href="/signup">SIGNUP</a>
+          </>
+        ) : (
+          <button className="logout-button" onClick={handleLogout}>
+            LOGOUT
+          </button>
+        )}
+        <div className="mobile-language">
+          <button className="mobile-language-button" onClick={toggleLanguage}>
+            {language}
+          </button>
+        </div>
       </div>
     </nav>
   );

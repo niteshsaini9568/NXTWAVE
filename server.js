@@ -11,7 +11,6 @@ import compression from 'compression';
 import sirv from 'sirv';
 import { createServer as createViteServer } from 'vite';
 
-// Import your database connection and routes
 import './Models/db.js';
 import Authrouter from './Routes/Authrouter.js';
 
@@ -24,7 +23,6 @@ const base = process.env.BASE || '/';
 
 const app = express();
 
-// CORS configuration
 const corsOptions = {
   origin: 'https://nxtwave-l75r.onrender.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
