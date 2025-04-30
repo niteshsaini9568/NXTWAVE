@@ -35,13 +35,9 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-// Body parsing middleware - use only one set of parsers
-// Remove express.json() and express.urlencoded()
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
-// API routes should be registered BEFORE the catch-all route
 app.use('/', Authrouter);
 
 let vite;
@@ -55,7 +51,6 @@ let templateHtml;
       base,
     });
     
-    // Vite middleware for development
     app.use(vite.middlewares);
   } else {
     app.use(compression());
@@ -63,9 +58,7 @@ let templateHtml;
     templateHtml = await fs.readFile('./dist/client/index.html', 'utf-8');
   }
 
-  // This should be the LAST route handler to catch all non-API routes
   app.use('*', async (req, res, next) => {
-    // Skip SSR for API routes
     if (req.originalUrl.startsWith('/api/')) {
       return next();
     }
